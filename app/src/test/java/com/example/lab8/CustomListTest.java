@@ -29,7 +29,7 @@ public class CustomListTest {
      * check if our current size matches the initial size plus one
      * */
     @Test
-    public void addCityTest(){
+    public void addCityTest() {
         list=MockCityList();
         int listSize=list.getCount();
         list.addCity(new City("Estevan", "SK"));
@@ -37,12 +37,25 @@ public class CustomListTest {
     }
 
     @Test
-    public void deleteCityTest(){
+    public void deleteCityTest() {
         list = MockCityList();
         City city = new City("Victoria", "BC");
         list.addCity(city);
         int listSize = list.getCount();
         list.deleteCity(city);
         assertEquals(list.getCount(),listSize-1);
+    }
+
+    @Test
+    public void hasCityTest() {
+        list = MockCityList();
+        City city1 = new City("Regina", "SK");
+        list.addCity(city1);
+        Boolean contains;
+        contains = list.hasCity(city1);
+        assert contains;
+        City city2 = new City("Yellowknife", "NT");
+        contains = list.hasCity(city2);
+        assert contains;
     }
 }
